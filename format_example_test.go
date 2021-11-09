@@ -20,8 +20,8 @@ func ExampleFormat() {
 		PA2         *A
 		Map         map[string]*A
 		Map2        map[string]*A
-		List        []A
-		List2       []A
+		List        []interface{}
+		List2       []interface{}
 		F           func(format string, args ...interface{}) (int, error)
 		F2          func(format string, args ...interface{}) (int, error)
 		Ch          chan string
@@ -37,7 +37,7 @@ func ExampleFormat() {
 		VString:     "8",
 		Map:         map[string]*A{"a": &A{9}},
 		Map2:        nil,
-		List:        []A{{10}},
+		List:        []interface{}{A{10}, 10},
 		List2:       nil,
 		F:           fmt.Printf,
 		Ch:          make(chan string, 20),
@@ -68,9 +68,14 @@ func ExampleFormat() {
 	//     },
 	//     Map2: map(<nil>),
 	//     List: [
-	//         formatting.A{
-	//             VInt: int{10},
-	//         },
+	//         interface {}(
+	//             formatting.A{
+	//                 VInt: int{10},
+	//             }
+	//         ),
+	//         interface {}(
+	//             int{10}
+	//         ),
 	//     ],
 	//     List2: [
 	//     ],

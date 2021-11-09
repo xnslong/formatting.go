@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"fmt"
 	"io"
-	"path"
 	"reflect"
 	"runtime"
 	"strings"
@@ -208,7 +207,7 @@ func ReflectiveFormatMap(refV reflect.Value, prefix string, indent int, target i
 func ReflectiveFormatInterface(refV reflect.Value, prefix string, indent int, target io.Writer, refType reflect.Type) error {
 	fes := make([]func() error, 0, 7)
 
-	fes = append(fes, func() error { return fprint(target, path.Base(refType.PkgPath())+"."+refType.Name()) })
+	fes = append(fes, func() error { return fprint(target, refV.Type().String()) })
 	fes = append(fes, func() error { return fprint(target, "(\n") })
 	fes = append(fes, func() error { return doIndent(target, prefix, indent+1) })
 	fes = append(fes, func() error { return ReflectiveFormatToWriter(refV.Elem(), prefix, indent+1, target) })
