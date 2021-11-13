@@ -1,5 +1,7 @@
 # README
 
+[![Go](https://github.com/xnslong/formatting.go/actions/workflows/go.yml/badge.svg)](https://github.com/xnslong/formatting.go/actions/workflows/go.yml)
+
 formatting data of go types to well printed formats
 
 for example
