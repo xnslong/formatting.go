@@ -1,6 +1,7 @@
 # README
 
 [![Go](https://github.com/xnslong/formatting.go/actions/workflows/go.yml/badge.svg)](https://github.com/xnslong/formatting.go/actions/workflows/go.yml)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 formatting data of go types to well printed formats
 
